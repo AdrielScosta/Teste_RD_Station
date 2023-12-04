@@ -9,12 +9,12 @@ function customerSuccessBalancing(
   customers,
   customerSuccessAway
   ) {  
-  const customersMaior = customers.sort((a, b) => a.score - b.score)[0];
-  const cssAtivos = customerSuccess.filter(item => !customerSuccessAway.includes(item.id) && item.score >= customersMaior.score).sort((a, b) => a.score - b.score)
+  const CUSTOMERS_SCORE_MENOR = customers.sort((a, b) => a.score - b.score)[0];
+  const CSS_ATIVOS = customerSuccess.filter(item => !customerSuccessAway.includes(item.id) && item.score >= CUSTOMERS_SCORE_MENOR.score).sort((a, b) => a.score - b.score)
 
   let resultado = []
 
-  cssAtivos.map(cssItem => {
+  CSS_ATIVOS.map(cssItem => {
     
     if (resultado.length === 0) {
       const count = customers.filter(customer => customer.score <= cssItem.score).length;
