@@ -34,14 +34,14 @@ function customerSuccessBalancing(
     }
   });
   
-  const res = resultado.reduce((maxCountItem, currentItem) => {
+  const resultadoMaior = resultado.reduce((maxCountItem, currentItem) => {
     return currentItem.count > maxCountItem.count ? currentItem : maxCountItem;
   }, resultado[0])
 
 
-  const resultadoCount = resultado.length === 0 ? ['1','2'] : resultado.filter(item => item.count == res.count) 
+  const resultadoCount = resultado.length === 0 ? ['1','2'] : resultado.filter(item => item.count == resultadoMaior.count) 
 
-  return resultadoCount.length > 1 ? 0 : res.id
+  return resultadoCount.length > 1 ? 0 : resultadoMaior.id
 
 }
 
